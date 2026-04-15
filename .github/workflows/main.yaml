@@ -1,9 +1,9 @@
 on:
   pull_request:
-  work_flow_dispatch:
-    push:
-      branches:
-        - main
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   hello_world_job:
