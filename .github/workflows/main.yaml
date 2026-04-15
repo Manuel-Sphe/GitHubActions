@@ -1,0 +1,24 @@
+on:
+  pull_request:
+  work_flow_dispatch:
+    push:
+      branches:
+        - main
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v5
+      # Calls the Manuel-Sphe/GitHubActions action
+      - id: foo
+        # SHA of the commit to use if referencing a specific commit in a different repository
+        # OWNER/GitHubActions@SHA
+        uses: ./.github/actions/GitHubActions
+        with:
+          who-to-greet: "Mona the Octocat"
+      - run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+        env:
+          RANDOM_NUMBER: ${{ steps.foo.outputs.random-number }}
