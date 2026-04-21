@@ -15,7 +15,7 @@ jobs:
       - id: foo
         # SHA of the commit to use if referencing a specific commit in a different repository
         # OWNER/GitHubActions@SHA
-        uses: ./.github/actions/
+        uses: ./ # uses the local action
         with:
           who-to-greet: "Mona the Octocat"
       - run: echo random-number "$RANDOM_NUMBER"
